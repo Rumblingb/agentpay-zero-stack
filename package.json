@@ -1,0 +1,23 @@
+{
+  "name": "agentpay-zero-stack",
+  "version": "1.0.0",
+  "description": "H0: Hack the Zero Stack — AgentPay autonomous payment infrastructure on Vercel v0 + AWS",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "tsc",
+    "deploy": "vercel deploy --prod",
+    "start": "node dist/api/agents.js"
+  },
+  "keywords": ["agentpay", "vercel", "aws", "agent-payments", "zero-stack"],
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^14.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/uuid": "^9.0.7",
+    "@vercel/node": "^3.0.0",
+    "typescript": "^5.3.2",
+    "vercel": "^34.0.0"
+  }
+}

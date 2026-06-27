@@ -1,0 +1,58 @@
+Resources:
+  AgentsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: agentpay-agents
+      AttributeDefinitions:
+        - AttributeName: agentId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: agentId
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+
+  GatesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: agentpay-gates
+      AttributeDefinitions:
+        - AttributeName: gateId
+          AttributeType: S
+        - AttributeName: agentId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: gateId
+          KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: agentId-index
+          KeySchema:
+            - AttributeName: agentId
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+      BillingMode: PAY_PER_REQUEST
+
+  AuditTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: agentpay-audit
+      AttributeDefinitions:
+        - AttributeName: entryId
+          AttributeType: S
+        - AttributeName: agentId
+          AttributeType: S
+        - AttributeName: timestamp
+          AttributeType: S
+      KeySchema:
+        - AttributeName: entryId
+          KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: agentId-timestamp-index
+          KeySchema:
+            - AttributeName: agentId
+              KeyType: HASH
+            - AttributeName: timestamp
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      BillingMode: PAY_PER_REQUEST

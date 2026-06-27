@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "@vercel/node@3"
+    }
+  },
+  "env": {
+    "AWS_REGION": "us-east-1",
+    "AGENTS_TABLE": "agentpay-agents",
+    "GATES_TABLE": "agentpay-gates",
+    "AUDIT_TABLE": "agentpay-audit",
+    "DEFAULT_BUDGET": "500",
+    "MAX_GATE_AMOUNT": "100"
+  }
+}
