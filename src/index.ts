@@ -158,7 +158,7 @@ export async function evaluateAndCreateGate(params: {
     targetService: params.target,
     maxAmount: params.amount,
     scope: params.scope || 'payments',
-    token: `apg_${Buffer.from(gateId).toString('base64').replace(/=/g, '').slice(0, 24)}`,
+    token: `apg_${btoa(gateId).replace(/=/g, '').slice(0, 24)}`,
     expiresAt: new Date(Date.now() + 3600000).toISOString(),
     used: 0,
   };
