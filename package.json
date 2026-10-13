@@ -11,7 +11,7 @@
   "keywords": ["agentpay", "vercel", "aws", "agent-payments", "zero-stack"],
   "license": "MIT",
   "dependencies": {
-    "uuid": "^14.0.1"
+    "uuid": "^14.0.3"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
